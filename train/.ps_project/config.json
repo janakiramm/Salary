@@ -1,0 +1,8 @@
+{
+  "project": "train",
+  "container": "janakiramm/python:3",
+  "command": "python train.py",
+  "workspace": "/Volumes/Data/Dropbox/Work/Clients/Paperspace/Deliverables/Content/Quickstart/Demo/Salary/train",
+  "machineType": "C2",
+  "lastJobId": "j2nbpqq4oo38g"
+}

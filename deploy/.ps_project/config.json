@@ -1,0 +1,8 @@
+{
+  "project": "deploy",
+  "command": "pip install flask && python infer.py",
+  "container": "janakiramm/python:3",
+  "workspace": "/Volumes/Data/Dropbox/Work/Clients/Paperspace/Deliverables/Content/Quickstart/Demo/Salary/deploy",
+  "machineType": "C2",
+  "lastJobId": "js2wt3krcdij9s"
+}
