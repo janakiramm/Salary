@@ -1,7 +1,12 @@
 from flask import Flask, jsonify
 from sklearn.externals import joblib
+from argparse import ArgumentParser
 
-filename = '/storage/salary/sal_model.pkl'
+parser = ArgumentParser()
+parser.add_argument("-m", "--model", dest="model",
+                    help="location of the pickle file")
+
+filename = parser.parse_args().model
 
 app = Flask(__name__)
 

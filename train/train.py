@@ -1,12 +1,22 @@
 import numpy as np
 import pandas as pd
 import os
+from argparse import ArgumentParser
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-model_dir="/storage/salary"
 
-sal = pd.read_csv('sal.csv',header=0, index_col=None)
+parser = ArgumentParser()
+parser.add_argument("-i", "--in", dest="input",
+                    help="location of input dataset")
+parser.add_argument("-o", "--out",dest="output",
+                    help="location of model"
+                    )
+
+dataset = parser.parse_args().input
+model_dir = parser.parse_args().output
+
+sal = pd.read_csv(dataset,header=0, index_col=None)
 X = sal[['x']]
 y = sal['y']
 
@@ -27,6 +37,6 @@ from sklearn.externals import joblib
 
 if not os.path.exists(model_dir):
     os.makedirs(model_dir)
-filename = model_dir+'/sal_model.pkl'
+filename = model_dir+'/model.pkl'
 
 joblib.dump(lm, filename)
