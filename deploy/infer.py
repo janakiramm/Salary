@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
-from sklearn.externals import joblib
+from flask import request
+import joblib
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
@@ -14,9 +15,10 @@ app = Flask(__name__)
 def index():
     return "Stackoverflow Salary Predictor"
 
-@app.route('/sal/<int:x>', methods=['GET'])
-def predict(x):
+@app.route('/predict', methods=['POST'])
+def predict():
 	loaded_model=joblib.load(filename)
+	x=int(request.json["exp"])
 	y=loaded_model.predict([[x]])[0]
 	sal=jsonify({'salary': round(y,2)})
 	return sal
