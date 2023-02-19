@@ -1,0 +1,7 @@
+containers:{
+    "salary": {
+        image: "janakiramm/salpred:latest"
+        ports: publish: "80:5000/http"
+        scale: 4
+    }
+}
